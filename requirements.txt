@@ -1,0 +1,4 @@
+Flask
+requests
+#random
+gunicorn==20

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-kubernetes
+  labels:
+    app: flask-kubernetes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-kubernetes
+  # pod spec begins here
+  template:
+    metadata:
+      labels:
+        app: flask-kubernetes
+    spec:
+      containers:
+        - name: flask-kubernetes
+          image: registry.digitalocean.com/flaskapi-registry/jaredburks/app
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+
